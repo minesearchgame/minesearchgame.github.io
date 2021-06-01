@@ -10,12 +10,12 @@ function cusAlert(m)
     aDivAlrt.style.color = "#888888";
     aDivAlrt.style.position = "fixed";
     aDivAlrt.style.width = 250+"px";
-    aDivAlrt.style.background = "#fff";
+    aDivAlrt.style.background = "#e1e1e1";
     aDivAlrt.style.padding = 10+"px";
-    aDivAlrt.style.borderRadius = 5+"px";
-    aDivAlrt.style.bottom = (h/2)+"px";
+    aDivAlrt.style.borderStyle = "outset";
+    aDivAlrt.style.top = 200+"px";
     aDivAlrt.style.boxShadow = "0px 0px 10px 5px #777777";
-    aDivAlrt.style.left = w/2-125+"px";
+    aDivAlrt.style.left = (w/2)-125+"px";
 
     //var aDivAlrtBg = document.createElement("div");
     //aDivAlrtBg.innerHTML = '<div id="bg" style="position: fixed; top:0; left:0; background: rgba(0, 0, 0, 0.37); width: 100%; height: 100%;"></div>';
@@ -24,7 +24,7 @@ function cusAlert(m)
     document.getElementsByTagName("body")[0].appendChild(aDivAlrt);
 
     //window.onload = function(){
-        window.setTimeout(dismissCusBox,2000);
+        window.setTimeout(dismissCusBox,3000);
     //}
 
 }
