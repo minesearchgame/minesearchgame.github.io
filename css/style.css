@@ -187,7 +187,7 @@ input{
   width: 36px;
   height: 36px;
   border-style: outset;
-  background-image: url("../img/setBtn.png");
+  background-image: url("../img/setbtn.png");
   margin: 0 auto;
 }
 
@@ -229,7 +229,7 @@ input{
   width: 36px;
   height: 36px;
   border-style: outset;
-  background-image: url("../img/flagBtn.png");
+  background-image: url("../img/flagbtn.png");
   margin: 0 auto;
 
 }
@@ -238,7 +238,7 @@ input{
   width: 36px;
   height: 36px;
   border-style: inset;
-  background-image: url("../img/flagBtn_.png");
+  background-image: url("../img/flagbtn_.png");
   margin: 0 auto;
 
 }
