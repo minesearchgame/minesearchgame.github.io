@@ -1,0 +1,20 @@
+{
+    "name": "minesweeper",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "고전명작게임 지뢰찾기를 웨일에서도 즐기세요.",
+    "icons": {
+        "64": "icon/icon64.png",
+        "128": "icon/icon128.png"
+    },
+    "sidebar_action": {
+        "default_page": "side.html",
+        "default_icon": {              
+            "64": "icon/icon64.png"
+        },
+        "default_title": "minesweeper with whale",
+        "use_navigation_bar": false,
+        "mobile_user_agent": false
+    },
+    "permissions": ["storage"]
+}
