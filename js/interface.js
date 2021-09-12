@@ -20,7 +20,7 @@ let width= 36;
 let flags= 0;
 let gameSt= true;   //true: play  false: stop
 let mode = 1; //1: search  -1:flag
-
+let mouseClickMode = true; 
 
 let originBoxs = 9;
 
@@ -267,6 +267,43 @@ function create2DArray(cols,rows){
 }
 
 
+function mousePressed() {
+    if (mouseButton === RIGHT) {
+      mouseClickMode = false;
+
+      let x = floor(mouseX/width);
+      let y = floor(mouseY/width);
+        //alert("right");
+
+      if (grid[x][y].clicked==false && gameSt == true){
+                if (grid[x][y].flagged==true){
+                        grid[x][y].flagged=false;
+                        flags = flags + 1;
+                }
+                else if (flags > 0){
+                        grid[x][y].flagged=true;
+                        flags = flags - 1;
+                }
+      }
+      document.getElementById("flagsLeft").innerHTML = flags;
+
+      if(win(cols, rows, grid, mines)){
+            gameSt = false; //game end
+            pause(); //time stop
+            cusAlert("You won!<br>"+document.getElementById("time").innerText);
+            //window.alert("You won!");
+            //location = location;
+      }
+
+
+    }
+    else {
+        //alert("left");
+        mouseClickMode = true;
+    }
+}
+
+
 /**
  * Changes the box implementation when it is clicked  the number of mines adjacent to that spot will appear. If they have flagged every
  * mine, they win
@@ -277,10 +314,11 @@ function create2DArray(cols,rows){
  */
 function mouseClicked(){
     /** Gets coordinate of the click input */
-    let x = floor(mouseX/width);
-    let y = floor(mouseY/width);
+  let x = floor(mouseX/width);
+  let y = floor(mouseY/width);
 
     if(mode === 1){   //flag
+      //console.log(mouseClickMode);
 
       /** If the box does not have a flag, change the boxs implementation */
       if (grid[x][y].flagged==false && gameSt == true){
@@ -291,6 +329,7 @@ function mouseClicked(){
         }
         /** Calls win function */
         if(win(cols, rows, grid, mines)){
+            gameSt = false; //game end
             pause(); //time stop
             cusAlert("You won!<br>"+document.getElementById("time").innerText);
             //window.location.reload(true);
@@ -318,6 +357,7 @@ function mouseClicked(){
         document.getElementById("flagsLeft").innerHTML = flags;
 
         if(win(cols, rows, grid, mines)){
+            gameSt = false; //game end
             pause(); //time stop
             cusAlert("You won!<br>"+document.getElementById("time").innerText);
             //window.alert("You won!");
@@ -325,6 +365,7 @@ function mouseClicked(){
         }
 
     }
+  //}
 }
 
 window.onblur = function() {
